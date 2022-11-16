@@ -1,7 +1,14 @@
-const Joi = require('joi');
+// const Joi = require('joi');
+const productsModel = require('../models/productsModel');
 
-const create = () => {
-
+const getAllProducts = async () => {
+  const getProducts = await productsModel.getAllProducts();
+  return getProducts;
 };
 
-module.exports = { create };
+const getProductsById = async (id) => {
+  const resultProductsById = await productsModel.getProductsById(id);
+  return resultProductsById;
+};
+
+module.exports = { getAllProducts, getProductsById };
