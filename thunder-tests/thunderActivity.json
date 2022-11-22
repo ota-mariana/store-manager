@@ -22,12 +22,12 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2022-11-18T21:33:20.975Z",
-    "modified": "2022-11-21T21:31:41.616Z",
+    "modified": "2022-11-22T19:08:23.255Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": " {\n    \"name\": \"Mari Teste 20\"\n  }",
+      "raw": " {\n    \"lastName\": \"mari\"\n  }",
       "form": []
     },
     "tests": []
