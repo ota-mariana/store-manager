@@ -25,4 +25,19 @@ const createNewProduct = async (req, res) => {
   return res.status(HTTP_CREATED_STATUS).json(newObject);
 };
 
-module.exports = { getAllProducts, getProductsById, createNewProduct };
+const updateProducts = async (req, res) => {
+  const { id } = req.params;
+  const { name } = req.body;
+  const product = { id, name };
+
+  const result = await productService.getProductsById(Number(id));
+
+  const resultProduct = await productService.updateProducts(product);
+
+  if (result === undefined) {
+    return res.status(HTTP_NOT_FOUND_STATUS).json({ message: 'Product not found' });
+  }
+  return res.status(HTTP_OK_STATUS).json(resultProduct);
+};
+
+module.exports = { getAllProducts, getProductsById, createNewProduct, updateProducts };
