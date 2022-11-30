@@ -1,19 +1,19 @@
 const connect = require('./connection');
 
-const registerSales = async () => {
-  const [{ insertId }] = await connect.execute(
-    'INSERT INTO StoreManager.sales (date) VALUES (default)', [],
-  );
-  return insertId;
-};
+// const registerSales = async () => {
+//   const [{ insertId }] = await connect.execute(
+//     'INSERT INTO StoreManager.sales (date) VALUES (default)', [],
+//   );
+//   return insertId;
+// };
 
-const registerSalesProducts = async (id, products) => {
-  const [resultSalesProducts] = await connect.execute(
-    'INSERT INTO StoreManager.sales_products (sales_id, product_id, quantity) VALUES (?, ?, ?)',
-    [id, products.productId, products.quantity],
-  );
-  return resultSalesProducts;
-};
+// const registerSalesProducts = async (id, products) => {
+//   const [resultSalesProducts] = await connect.execute(
+//     'INSERT INTO StoreManager.sales_products (sales_id, product_id, quantity) VALUES (?, ?, ?)',
+//     [id, products.productId, products.quantity],
+//   );
+//   return resultSalesProducts;
+// };
 
 const getAllSales = async () => {
   const [result] = await connect.execute(
@@ -39,4 +39,4 @@ const getSalesById = async (saleId) => {
   return result;
 };
 
-module.exports = { registerSales, registerSalesProducts, getAllSales, getSalesById };
+module.exports = { getAllSales, getSalesById };

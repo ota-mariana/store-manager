@@ -4,7 +4,7 @@ const { validateSaleById } = require('../middlewares/validateSalesProducts');
 
 const routeSales = express.Router();
 
-routeSales.post('/', salesController.registerSales);
+// routeSales.post('/', salesController.registerSales);
 routeSales.get('/', salesController.getAllSales);
 routeSales.get('/:id', validateSaleById, salesController.getSalesById);
 

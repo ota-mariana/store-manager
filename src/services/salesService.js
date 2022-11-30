@@ -1,12 +1,12 @@
 const salesModel = require('../models/salesModel');
 
-const registerSales = async (products) => {
-  const id = await salesModel.registerSales();
-  const arrayPromises = products.map((product) => salesModel.registerSalesProducts(id, product));
+// const registerSales = async (products) => {
+//   const id = await salesModel.registerSales();
+//   const arrayPromises = products.map((product) => salesModel.registerSalesProducts(id, product));
   
-  await Promise.all(arrayPromises);
-  return { id, itemsSold: products };
-};
+//   await Promise.all(arrayPromises);
+//   return { id, itemsSold: products };
+// };
 // console.log(registerSales);
 
 const getAllSales = async () => {
@@ -19,4 +19,4 @@ const getSalesById = async (id) => {
   return resultSalesById;
 };
 
-module.exports = { registerSales, getAllSales, getSalesById };
+module.exports = { getAllSales, getSalesById };
