@@ -5,7 +5,7 @@ const connect = require('../../../src/models/connection');
 
 const productService = require('../../../src/services/productService');
 
-const { mockAllProducts, mockProductById } = require('../mocks/mockProductModel');
+const { mockAllProducts, mockProductById, newProduct } = require('../mocks/mockProductModel');
 
 describe('Testes da camada service', function () {
   describe('Caso o status for "OK", os dados são retornados', function () {
@@ -25,6 +25,17 @@ describe('Testes da camada service', function () {
       expect(productsById).to.be.deep.equal(mockProductById);
     });
   });
+
+  // describe('Verifica o endpoint products para cadastrar produtos', function () {
+  //   it('Retorna um novo produto', async function () {
+  //     sinon.stub(connect, 'execute').resolves(newProduct);
+  //     const product = await productService.createNewProduct(newProduct.name);
+  //     const resultNewProduct = await productsModel.getProductsById(product.id);
+
+  //     expect(resultNewProduct).to.be.an('object');
+  //     // expect(product).to.be.deep.equal(newProduct);
+  //   });
+  // });
 
   afterEach(sinon.restore);
 });

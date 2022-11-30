@@ -37,16 +37,16 @@
     "colId": "history",
     "containerId": "",
     "name": "http://localhost:3000/sales",
-    "url": "http://localhost:3000/sales",
+    "url": "http://localhost:3000/products",
     "method": "POST",
     "sortNum": 0,
     "created": "2022-11-27T13:56:01.226Z",
-    "modified": "2022-11-27T13:56:01.226Z",
+    "modified": "2022-11-29T22:41:29.799Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "[\n  {\n    \"productId\": 1,\n    \"quantity\": 1\n  },\n  {\n    \"productId\": 2,\n    \"quantity\": 5\n  }\n]",
+      "raw": "{\n  \"name\": \"ProdutoX teste\"\n}\n",
       "form": []
     },
     "tests": []
@@ -131,11 +131,11 @@
     "colId": "history",
     "containerId": "",
     "name": "http://localhost:3000/products/1",
-    "url": "http://localhost:3000/products/20",
+    "url": "http://localhost:3000/products/1",
     "method": "PUT",
     "sortNum": 0,
     "created": "2022-11-29T13:27:43.350Z",
-    "modified": "2022-11-29T14:41:23.276Z",
+    "modified": "2022-11-30T00:05:58.525Z",
     "headers": [],
     "params": [],
     "body": {

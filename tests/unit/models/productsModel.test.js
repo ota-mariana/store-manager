@@ -26,5 +26,23 @@ describe('Testes da camada model', function () {
     });
   });
 
+  describe('Verifica o endpoint products para cadastrar produtos', function () {
+    it('Cadastra um novo produto', async function () {
+      sinon.stub(connect, 'execute').resolves([{ insertId: 4 }]);
+      const newProduct = await productsModel.createNewProduct();
+
+      expect(newProduct).to.be.deep.equal(4);
+    });
+  });
+
+  // describe('Verifica se o produto é atualizado', function () {
+  //   it('Atualiza dados de um produto específico', async function () {
+  //     sinon.stub(connect, 'execute').resolves([{ insertId: 4 }]);
+  //     const updatedProduct = await productsModel.createNewProduct();
+
+  //     expect(updatedProduct).to.be.deep.equal(4);
+  //   });
+  // });
+
   afterEach(sinon.restore);
 });

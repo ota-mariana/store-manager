@@ -8,6 +8,8 @@ const productService = require('../../../src/services/productService');
 const { mockAllProducts, mockProductById, notFoundMessage } = require('../mocks/mockProductModel');
 
 const HTTP_OK_STATUS = 200;
+const HTTP_CREATED_STATUS = 201;
+const HTTP_BAD_REQUEST_STATUS = 400;
 const HTTP_NOT_FOUND_STATUS = 404;
 
 describe('Testes da camada controller', function () {
@@ -57,6 +59,25 @@ describe('Testes da camada controller', function () {
 
       expect(res.status.calledWith(HTTP_NOT_FOUND_STATUS)).to.be.equal(true);
       expect(res.json.calledWith(notFoundMessage)).to.be.equal(true);
+    });
+  });
+
+  describe('Verifica se é cadastrado um novo produto através do endpoint products', function () {
+    it('Retorna um novo produto cadastrado com sucesso', async function () {
+      const res = {};
+      const req = {
+        body: { name: "Product Z" }
+      };
+
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
+
+      sinon.stub(productService, 'createNewProduct').resolves(req.body);
+
+      await productsController.createNewProduct(req, res);
+
+      expect(res.status.calledWith(HTTP_CREATED_STATUS)).to.be.equal(true);
+      expect(res.json.calledWith(req.body)).to.be.equal(true);
     });
   });
 

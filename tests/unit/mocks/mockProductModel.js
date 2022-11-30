@@ -18,6 +18,11 @@ const mockProductById = {
   "name": "Martelo de Thor"
 };
 
+const newProduct = {
+  "id": 4,
+  "name": "Product Z"
+};
+
 const notFoundMessage = { "message": "Product not found" };
 
-module.exports = { mockAllProducts, mockProductById, notFoundMessage }
+module.exports = { mockAllProducts, mockProductById, notFoundMessage, newProduct }

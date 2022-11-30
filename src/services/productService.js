@@ -13,6 +13,7 @@ const getProductsById = async (id) => {
 
 const createNewProduct = async (name) => {
   const newProduct = await productsModel.createNewProduct(name);
+  console.log(newProduct);
   const resultNewProduct = await productsModel.getProductsById(newProduct);
   return resultNewProduct;
 };
