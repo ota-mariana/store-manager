@@ -81,5 +81,43 @@ describe('Testes da camada controller', function () {
     });
   });
 
+  describe('Verifica se o produto é atualizado', function () {
+    it('Retorna um produto atualizado com sucesso', async function () {
+      const res = {};
+      const req = {
+        params: { id: 1 },
+        body: { name: "Product Z" }
+      };
+
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
+
+      sinon.stub(productService, 'updateProducts').resolves(req.body);
+
+      await productsController.updateProducts(req, res);
+
+      expect(res.status.calledWith(HTTP_OK_STATUS)).to.be.equal(true);
+      expect(res.json.calledWith(req.body)).to.be.equal(true);
+    });
+
+    it('Retorna uma mensagem de erro caso o produto não seja encontrado/atualizado', async function () {
+      const res = {};
+      const req = {
+        params: { id: 100 },
+        body: { name: "Product Z" }
+      };
+
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
+
+      sinon.stub(productService, 'updateProducts').resolves(req.body);
+
+      await productsController.updateProducts(req, res);
+
+      expect(res.status.calledWith(HTTP_NOT_FOUND_STATUS)).to.be.equal(true);
+      expect(res.json.calledWith({ message: 'Product not found' })).to.be.equal(true);
+    });
+  });
+
   afterEach(sinon.restore);
 });
