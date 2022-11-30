@@ -35,14 +35,19 @@ describe('Testes da camada model', function () {
     });
   });
 
-  // describe('Verifica se o produto é atualizado', function () {
-  //   it('Atualiza dados de um produto específico', async function () {
-  //     sinon.stub(connect, 'execute').resolves([{ insertId: 4 }]);
-  //     const updatedProduct = await productsModel.createNewProduct();
+  describe('Verifica se o produto é atualizado', function () {
+    it('Atualiza dados de um produto específico', async function () {
 
-  //     expect(updatedProduct).to.be.deep.equal(4);
-  //   });
-  // });
+      const mockProductUpdated = {
+        "id": 1,
+        "name": "Martelo de Jane"
+      };
+      sinon.stub(connect, 'execute').resolves([{ insertId: 1 }]);
+      const updatedProduct = await productsModel.updateProducts(mockProductUpdated);
+
+      expect(updatedProduct).to.be.deep.equal(mockProductUpdated);
+    });
+  });
 
   afterEach(sinon.restore);
 });
