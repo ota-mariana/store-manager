@@ -20,7 +20,7 @@ const mockProductById = {
 
 const newProduct = {
   "id": 4,
-  "name": "Product Z"
+  "name": "Product Y"
 };
 
 const notFoundMessage = { "message": "Product not found" };
